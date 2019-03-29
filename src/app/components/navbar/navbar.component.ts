@@ -19,12 +19,20 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.onComprobarUserLogin();
   }
 
   onComprobarUserLogin(){
     this.authService.getAuth().subscribe(auth=>{
       if(auth){
         console.log(auth);
+        this.isLogin = true;
+        this.userNombre = auth.displayName;
+        this.userEmail = auth.email;
+        this.userPicture = auth.photoURL;
+        this.userId = auth.uid;
+      }else{
+        this.isLogin = false;
       }
     })
 

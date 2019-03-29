@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,7 +10,8 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent implements OnInit {
 
   constructor(
-    private authService:AuthService
+    private authService:AuthService,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -19,6 +22,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginGoogle()
     .then((res) =>{
       console.log(res);
+      this.router.navigate(['/admin'])
     })
     .catch(err=>console.log(err.message))
 
@@ -29,6 +33,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginFacebook()
     .then((res) =>{
       console.log(res);
+      this.router.navigate(['/admin'])
     })
     .catch(err=>console.log(err.message))
 
@@ -40,6 +45,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginGithub()
     .then((res) =>{
       console.log(res);
+      this.router.navigate(['/admin'])
     })
     .catch(err=>console.log(err.message))
   }

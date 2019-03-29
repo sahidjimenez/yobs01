@@ -8,16 +8,16 @@ import { HomeComponent } from "./components/home/home.component";
 import { NotFoundComponent }  from "./components/not-found/not-found.component";
 import { NuevaRecetaComponent } from "./components/nueva-receta/nueva-receta.component";
 import { LoginComponent } from "./components/login/login.component";
-
+import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
 
   {path:'',component:HomeComponent},
   {path:'about',component:AboutComponent},
-  {path:'admin', component:AdminComponent},
-  {path:'details/:id',component:DetailsComponent},
-  {path:'edit/:id',component:EditComponent},
+  {path:'admin', component:AdminComponent,canActivate:[AuthGuard]},
+  {path:'details/:id',component:DetailsComponent,canActivate:[AuthGuard]},
+  {path:'edit/:id',component:EditComponent,canActivate:[AuthGuard]},
   {path:'login',component:LoginComponent},
-  {path:'nueva',component:NuevaRecetaComponent},
+  {path:'nueva',component:NuevaRecetaComponent,canActivate:[AuthGuard]},
   {path:'**',component:NotFoundComponent}
 
 ];

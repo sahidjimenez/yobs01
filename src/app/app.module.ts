@@ -20,11 +20,16 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
+
+
+
+
 //guard
 import { AuthGuard }  from './guards/auth.guard';
 //servicio
 
 import { AuthService } from './services/auth.service';
+import { RecetaService } from './services/receta.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,7 @@ import { AuthService } from './services/auth.service';
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AppRoutingModule
   ],
-  providers: [AuthService,AuthGuard],
+  providers: [AuthService,RecetaService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

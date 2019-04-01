@@ -9,7 +9,7 @@
       <li class="nav-item active">
         <a class="nav-link" routerLink="/">Inicio <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item" *ngIf="!isLogin">
+      <li class="nav-item" *ngIf="isLogin">
         <a class="nav-link" routerLink="/nueva">Nueva receta</a>
       </li>
       <li class="nav-item">
@@ -30,7 +30,7 @@
       </li>
 
       <li class="nav-item" *ngIf="isLogin">
-        <a class="nav-link" href="#" (click)="onLogout()">Salir</a>
+        <a class="nav-link" href="#" routerLink="/" (click)="onLogout()">Salir</a>
       </li>
     </ul>
 

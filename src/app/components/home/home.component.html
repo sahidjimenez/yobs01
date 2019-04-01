@@ -3,23 +3,22 @@
   <h1 class="display-4">Recetas increibles</h1>
   <p class="lead" >This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
   <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  
   </div>
 </div>
 
 <div class="row">
-  <div class="col md-6">
+  <div class="col-md-6 mt-3 " *ngFor="let receta of recetas">
     <div class="card d-flex flex-column aling-items-start">
-      <div class="card-boy d-flex flex-column aling-items-start">
+      <div class="card-body cuadrado d-flex flex-column aling-items-start">
         <strong class="d-inline-block mb-2 text-primary">
-          <span class="badge badge-pill badge-dark">Temporada</span>
+          <span class="badge badge-pill badge-dark">{{receta.temporada}}</span>
         </strong>
-        <h3 class="mb-0">Titulo Receta</h3>
+        <h3 class="mb-0"> <a href="/details/{{receta.id}}" class="text-dark">{{receta.titulo}}</a></h3>
         <div class="mb-1 text-muted">
-          <span class="badge badge-pill badge-success">Fecha</span>
+          <span class="badge badge-pill badge-success">{{receta.fechaPublicacion|date:'dd-MMM-yyyy'}}</span>
         </div>
-        <p class="card-text mb-auto">DESCRIPCION</p>
-        <a href="#" class="btn-btn-info">LEER MÁS</a>
+        <p class="card-text mb-auto">{{receta.descripcion}}</p>
+        <a href="/details/{{receta.id}}" class="btn-btn-info">LEER MÁS</a>
       </div>
     </div>
   </div>

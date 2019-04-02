@@ -9,13 +9,24 @@ import { NotFoundComponent }  from "./components/not-found/not-found.component";
 import { NuevaRecetaComponent } from "./components/nueva-receta/nueva-receta.component";
 import { LoginComponent } from "./components/login/login.component";
 import { AuthGuard } from './guards/auth.guard';
-const routes: Routes = [
+import { TipoDeUsuarioComponent }  from './components/tipo-de-usuario/tipo-de-usuario.component';
+
+
+//componentes de trabajos
+
+import { InicioComponent } from './components/inicio/inicio.component';
+import { CrearTrabajoComponent } from './components/crear-trabajo/crear-trabajo.component';
+import { DetallesTrabajoComponent } from './components/detalles-trabajo/detalles-trabajo.component';
+import { EditarTrabajoComponent } from './components/editar-trabajo/editar-trabajo.component';
+
+const routes: Routes = [  
 
   {path:'',component:HomeComponent},
   {path:'about',component:AboutComponent},
   {path:'admin', component:AdminComponent,canActivate:[AuthGuard]},
   {path:'details/:id',component:DetailsComponent,canActivate:[AuthGuard]},
   {path:'edit/:id',component:EditComponent,canActivate:[AuthGuard]},
+  {path:'tipo',component:TipoDeUsuarioComponent,canActivate:[AuthGuard]},
   {path:'login',component:LoginComponent},
   {path:'nueva',component:NuevaRecetaComponent,canActivate:[AuthGuard]},
   {path:'**',component:NotFoundComponent}

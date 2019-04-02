@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService }  from '../../services/auth.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -13,19 +15,23 @@ export class NavbarComponent implements OnInit {
   public userId :string;
   public isLogin :boolean;
 
+  public tipoUsuario:string;
+
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router:Router
   ) { }
 
   ngOnInit() {
     this.onComprobarUserLogin();
+    this.onComprobarTipoUsuario();
   }
 
   onComprobarUserLogin(){
     this.authService.getAuth().subscribe(auth=>{
       if(auth){
-        console.log(auth);
+        //console.log(auth);
         this.isLogin = true;
         this.userNombre = auth.displayName;
         this.userEmail = auth.email;
@@ -35,7 +41,17 @@ export class NavbarComponent implements OnInit {
         this.isLogin = false;
       }
     })
+  }
 
+  onComprobarTipoUsuario(){
+    if(localStorage.getItem("tipoUsuario")!=null){
+
+      this.tipoUsuario = localStorage.getItem("tipoUsuario");
+      console.log(this.tipoUsuario);
+    }else{
+      this.router.navigate(['/home']);
+      console.log("sahid"+this.tipoUsuario);
+    }
   }
 
   onLogout(){

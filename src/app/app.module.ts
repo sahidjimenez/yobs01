@@ -27,9 +27,14 @@ import {FormsModule} from '@angular/forms';
 //guard
 import { AuthGuard }  from './guards/auth.guard';
 //servicio
-
+import { TipoDeUsuarioService } from './services/tipo-de-usuario.service';
 import { AuthService } from './services/auth.service';
 import { RecetaService } from './services/receta.service';
+import { TipoDeUsuarioComponent } from './components/tipo-de-usuario/tipo-de-usuario.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { CrearTrabajoComponent } from './components/crear-trabajo/crear-trabajo.component';
+import { DetallesTrabajoComponent } from './components/detalles-trabajo/detalles-trabajo.component';
+import { EditarTrabajoComponent } from './components/editar-trabajo/editar-trabajo.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,12 @@ import { RecetaService } from './services/receta.service';
     NavbarComponent,
     NotFoundComponent,
     NuevaRecetaComponent,
-    LoginComponent
+    LoginComponent,
+    TipoDeUsuarioComponent,
+    InicioComponent,
+    CrearTrabajoComponent,
+    DetallesTrabajoComponent,
+    EditarTrabajoComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +63,7 @@ import { RecetaService } from './services/receta.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [AuthService,RecetaService,AuthGuard],
+  providers: [AuthService,RecetaService,AuthGuard,TipoDeUsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

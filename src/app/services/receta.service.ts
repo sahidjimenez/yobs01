@@ -60,5 +60,7 @@ export class RecetaService {
       this.RecetaDoc.delete();
     }
 
+    
+
 
 }

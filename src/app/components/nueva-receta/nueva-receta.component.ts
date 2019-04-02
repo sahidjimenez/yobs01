@@ -32,6 +32,7 @@ receta :RecetaInterface = {
   ) { }
 
   ngOnInit() {
+  
   }
   onGuardarReceta({value}:{value:RecetaInterface}){
     value.fechaPublicacion = (new Date()).getTime();
@@ -40,7 +41,7 @@ receta :RecetaInterface = {
       value.userNombre = user.displayName;
         this.recetaService.addNewReceta(value);
     })
-    this.router.navigate(['/']); 
+    this.router.navigate(['/']);
   }
 
 }

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginGoogle()
     .then((res) =>{
       console.log(res);
-      this.router.navigate(['/admin'])
+      this.router.navigate(['/tipo'])
     })
     .catch(err=>console.log(err.message))
 
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginFacebook()
     .then((res) =>{
       console.log(res);
-      this.router.navigate(['/admin'])
+      this.router.navigate(['/tipo'])
     })
     .catch(err=>console.log(err.message))
 
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginGithub()
     .then((res) =>{
       console.log(res);
-      this.router.navigate(['/admin'])
+      this.router.navigate(['/tipo'])
     })
     .catch(err=>console.log(err.message))
   }

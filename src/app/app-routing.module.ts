@@ -30,7 +30,7 @@ const routes: Routes = [
   {path:'detalles/:id',component:DetallesTrabajoComponent,canActivate:[AuthGuard]},
   {path:'details/:id',component:DetailsComponent,canActivate:[AuthGuard]},
   //modificaciones editar Trabajos
-  {path:'editar:id',component:EditarTrabajoComponent,canActivate:[AuthGuard]},
+  {path:'editar/:id',component:EditarTrabajoComponent,canActivate:[AuthGuard]},
   {path:'edit/:id',component:EditComponent,canActivate:[AuthGuard]},
 
   {path:'tipo',component:TipoDeUsuarioComponent,canActivate:[AuthGuard]},

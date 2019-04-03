@@ -11,11 +11,11 @@
         <agm-marker *ngFor="let trabajo of trabajos" [latitude]="trabajo.lat" [longitude]="trabajo.lng">
 
           <agm-info-window>
-            <strong>Titulo</strong>
-            <p>Descripcion</p>
+            <strong>{{trabajo.titulo}}</strong>
+            <p>{{trabajo.descripcion}}</p>
 
             <div class="pr-3">
-              <button mat-raised-button color="primary">Detalles</button>
+              <a href="/detalles/{{trabajo.id}}">Detalles</a>
             </div>
 
           </agm-info-window>

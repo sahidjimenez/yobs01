@@ -36,10 +36,11 @@ export class NuevoTrabajoService {
       }
 
       getOneTrabajo(idTrabajo: string){
-        this.trabajoDoc = this.afs.doc<TrabajoInterface>(`recetas/${idTrabajo}`);
+        this.trabajoDoc = this.afs.doc<TrabajoInterface>(`trabajos/${idTrabajo}`);
         this.trabajo = this.trabajoDoc.snapshotChanges().map(action=>{
           if (action.payload.exists === false) {
               return null;
+
           }else{
             const data = action.payload.data() as TrabajoInterface;
             data.id = action.payload.id;
@@ -50,12 +51,12 @@ export class NuevoTrabajoService {
       }
 
       updateTrabajo(trabajo:TrabajoInterface){
-        this.trabajoDoc = this.afs.doc(`recetas/${trabajo.id}`);
+        this.trabajoDoc = this.afs.doc(`trabajos/${trabajo.id}`);
         this.trabajoDoc.update(trabajo);
       }
 
       deteleTrabajo(trabajo:TrabajoInterface){
-        this.trabajoDoc = this.afs.doc(`recetas/${trabajo.id}`);
+        this.trabajoDoc = this.afs.doc(`trabajos/${trabajo.id}`);
         this.trabajoDoc.delete();
       }
 

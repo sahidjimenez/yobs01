@@ -24,6 +24,7 @@ recetas:RecetaInterface[];
   todasRecetas(){
     this.RecetaService.getAllRecetas()
     .subscribe(recetas=>this.recetas = recetas);
+    
   }
 
 }

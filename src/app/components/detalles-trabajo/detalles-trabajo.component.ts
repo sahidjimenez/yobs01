@@ -14,6 +14,8 @@ export class DetallesTrabajoComponent implements OnInit {
 
   idTrabajo:string;
   idUsuarioLogado:string;
+  lat = 19.832264;
+  lng = -90.556898;
 
   trabajo :TrabajoInterface = {
     id:'',

@@ -12,6 +12,19 @@
           <p>{{trabajo.especificaciones}}</p>
       </blockquote>
 
+      <agm-map [latitude]="trabajo.lat" [longitude]="trabajo.lng" [zoom]="18">
+
+        <agm-marker [latitude]="trabajo.lat" [longitude]="trabajo.lng">
+
+          <agm-info-window>
+
+              //contenido
+
+          </agm-info-window>
+
+        </agm-marker>
+
+      </agm-map>
     </div>
   </div>
 

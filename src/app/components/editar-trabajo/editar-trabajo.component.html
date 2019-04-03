@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6 mx-auto mt-3">
-    <a href="" class="btn btn-link">
+    <a routerLink="/detalles/{{trabajo.id}}" class="btn btn-link">
       <i class="fas fa-arrow-alt-circle-left"> Regresar</i>
     </a>
   </div>
@@ -45,7 +45,7 @@
                 <p>Marca la ubicacion de trabajo</p>
 
 
-                <agm-map (mapClick)="agregarMarcador( $event )" [latitude]="lat" [longitude]="lng" [zoom]="16">
+                <agm-map (mapClick)="agregarMarcador( $event )" [latitude]="trabajo.lat" [longitude]="trabajo.lng" [zoom]="17">
 
                   <agm-marker [latitude]="trabajo.lat"
                               [longitude]="trabajo.lng"

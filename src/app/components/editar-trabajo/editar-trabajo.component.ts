@@ -33,12 +33,15 @@ export class EditarTrabajoComponent implements OnInit {
   constructor(
     private route:ActivatedRoute,
     private router:Router,
-    private nuevotrabajoService:NuevoTrabajoService
-  ) { }
+    private nuevotrabajoService:NuevoTrabajoService) {
+
+     }
 
   ngOnInit() {
     this.getDetallesTrabajo();
+
   }
+
   agregarMarcador(evento){
 
     this.trabajo.lng = evento.coords.lng
@@ -48,13 +51,18 @@ export class EditarTrabajoComponent implements OnInit {
     console.log(this.trabajo);
 
   }
+
   getDetallesTrabajo(){
+
     this.idTrabajo = this.route.snapshot.params['id'];
     this.nuevotrabajoService.getOneTrabajo(this.idTrabajo).subscribe(trabajo=>this.trabajo = trabajo);
   }
 
+
   onModificarTrabajo({value}:{value:TrabajoInterface}){
     value.id = this.idTrabajo;
+    value.lng=this.trabajo.lng;
+    value.lat=this.trabajo.lat;
     this.nuevotrabajoService.updateTrabajo(value);
     this.router.navigate(['/detalles/'+this.idTrabajo]);
   }

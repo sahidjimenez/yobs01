@@ -11,7 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NuevaRecetaComponent } from './components/nueva-receta/nueva-receta.component';
-
+import { TipoDeUsuarioComponent } from './components/tipo-de-usuario/tipo-de-usuario.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { environment } from "../environments/environment";
@@ -22,19 +22,32 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import {FormsModule} from '@angular/forms';
 
+//componentes de crear trabajos
+import { InicioComponent } from './components/inicio/inicio.component';
+import { CrearTrabajoComponent } from './components/crear-trabajo/crear-trabajo.component';
+import { DetallesTrabajoComponent } from './components/detalles-trabajo/detalles-trabajo.component';
+import { EditarTrabajoComponent } from './components/editar-trabajo/editar-trabajo.component';
+
+//angular materials
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
 
 
+//agm maps
+import { AgmCoreModule } from '@agm/core';
 //guard
 import { AuthGuard }  from './guards/auth.guard';
 //servicio
 import { TipoDeUsuarioService } from './services/tipo-de-usuario.service';
 import { AuthService } from './services/auth.service';
 import { RecetaService } from './services/receta.service';
-import { TipoDeUsuarioComponent } from './components/tipo-de-usuario/tipo-de-usuario.component';
-import { InicioComponent } from './components/inicio/inicio.component';
-import { CrearTrabajoComponent } from './components/crear-trabajo/crear-trabajo.component';
-import { DetallesTrabajoComponent } from './components/detalles-trabajo/detalles-trabajo.component';
-import { EditarTrabajoComponent } from './components/editar-trabajo/editar-trabajo.component';
+import { NuevoTrabajoService } from './services/nuevo-trabajo.service';
+
+
+//componentes de angular materials
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -61,9 +74,23 @@ import { EditarTrabajoComponent } from './components/editar-trabajo/editar-traba
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBqqahRzzlBRRkdnu7StK0I8wZCE5hhUbg'
+    }),
+    //AngularMaterials
+    MatToolbarModule,
+    MatCardModule,
+    MatButtonModule
   ],
-  providers: [AuthService,RecetaService,AuthGuard,TipoDeUsuarioService],
+  providers: [
+              AuthService,
+              RecetaService,
+              AuthGuard,
+              TipoDeUsuarioService,
+              NuevoTrabajoService
+            ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

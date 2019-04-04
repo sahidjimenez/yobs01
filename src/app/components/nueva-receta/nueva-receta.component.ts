@@ -32,7 +32,7 @@ receta :RecetaInterface = {
   ) { }
 
   ngOnInit() {
-  
+
   }
   onGuardarReceta({value}:{value:RecetaInterface}){
     value.fechaPublicacion = (new Date()).getTime();

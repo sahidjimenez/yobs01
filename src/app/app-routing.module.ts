@@ -19,15 +19,25 @@ import { CrearTrabajoComponent } from './components/crear-trabajo/crear-trabajo.
 import { DetallesTrabajoComponent } from './components/detalles-trabajo/detalles-trabajo.component';
 import { EditarTrabajoComponent } from './components/editar-trabajo/editar-trabajo.component';
 
-const routes: Routes = [  
+const routes: Routes = [
 
-  {path:'',component:HomeComponent},
+  {path:'',component:InicioComponent},
+  {path:'home',component:HomeComponent},
+
   {path:'about',component:AboutComponent},
   {path:'admin', component:AdminComponent,canActivate:[AuthGuard]},
+  //modificaciones detalles Trabajos
+  {path:'detalles/:id',component:DetallesTrabajoComponent,canActivate:[AuthGuard]},
   {path:'details/:id',component:DetailsComponent,canActivate:[AuthGuard]},
+  //modificaciones editar Trabajos
+  {path:'editar/:id',component:EditarTrabajoComponent,canActivate:[AuthGuard]},
   {path:'edit/:id',component:EditComponent,canActivate:[AuthGuard]},
+
   {path:'tipo',component:TipoDeUsuarioComponent,canActivate:[AuthGuard]},
   {path:'login',component:LoginComponent},
+
+  //
+  {path:'nuevotrabajo',component:CrearTrabajoComponent,canActivate:[AuthGuard]},
   {path:'nueva',component:NuevaRecetaComponent,canActivate:[AuthGuard]},
   {path:'**',component:NotFoundComponent}
 
